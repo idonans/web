@@ -17,12 +17,13 @@ public interface UserMapper {
       @Result(property = "id", column = "id"),
       @Result(property = "username", column = "username"),
       @Result(property = "nickname", column = "nickname"),
+      @Result(property = "sex", column = "sex"),
       @Result(property = "timeCreate", column = "time_ms_create"),
       @Result(property = "timeUpdate", column = "time_ms_update")
   })
   User findById(@Param("id") long id);
 
-  @Insert("insert into t_user(username, nickname, time_ms_create, time_ms_update) values (#{username}, #{nickname}, #{timeCreate}, #{timeUpdate})")
+  @Insert("insert into t_user(username, nickname, sex, time_ms_create, time_ms_update) values (#{username}, #{nickname}, #{timeCreate}, #{timeUpdate})")
   @Options(useGeneratedKeys = true, keyProperty = "id", keyColumn = "id")
   long insertOne(User user);
 }
