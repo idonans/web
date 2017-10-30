@@ -1,6 +1,6 @@
 package com.idonans.web.user;
 
-import com.idonans.web.user.domain.User;
+import com.idonans.web.user.entity.User;
 import com.idonans.web.user.mapper.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;

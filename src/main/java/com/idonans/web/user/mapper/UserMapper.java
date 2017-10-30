@@ -1,6 +1,6 @@
 package com.idonans.web.user.mapper;
 
-import com.idonans.web.user.domain.User;
+import com.idonans.web.user.entity.User;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Options;

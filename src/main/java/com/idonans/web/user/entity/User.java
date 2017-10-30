@@ -1,4 +1,4 @@
-package com.idonans.web.user.domain;
+package com.idonans.web.user.entity;
 
 public class User {
 
