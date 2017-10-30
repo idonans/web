@@ -25,5 +25,5 @@ public interface UserMapper {
 
   @Insert("insert into t_user(username, nickname, sex, time_ms_create, time_ms_update) values (#{username}, #{nickname}, #{sex}, #{timeCreate}, #{timeUpdate})")
   @Options(useGeneratedKeys = true, keyProperty = "id", keyColumn = "id")
-  long insertOne(User user);
+  int insertOne(User user);
 }

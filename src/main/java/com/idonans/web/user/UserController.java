@@ -29,8 +29,8 @@ public class UserController {
   public User createOne(@RequestBody User userInput) {
     userInput.timeCreate = System.currentTimeMillis();
     userInput.timeUpdate = userInput.timeCreate;
-    long id = userMapper.insertOne(userInput);
-    User user = getById(id);
+    int rows = userMapper.insertOne(userInput);
+    User user = getById(userInput.id);
     return user;
   }
 }
