@@ -12,7 +12,7 @@ import org.apache.ibatis.annotations.Select;
 @Mapper
 public interface UserMapper {
 
-  @Select("select id, username, nickname, time_ms_create, time_ms_update from t_user where id = #{id}")
+  @Select("select id, username, nickname, sex, time_ms_create, time_ms_update from t_user where id = #{id}")
   @Results({
       @Result(property = "id", column = "id"),
       @Result(property = "username", column = "username"),
