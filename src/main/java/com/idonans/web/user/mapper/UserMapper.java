@@ -23,7 +23,7 @@ public interface UserMapper {
   })
   User findById(@Param("id") long id);
 
-  @Insert("insert into t_user(username, nickname, sex, time_ms_create, time_ms_update) values (#{username}, #{nickname}, #{timeCreate}, #{timeUpdate})")
+  @Insert("insert into t_user(username, nickname, sex, time_ms_create, time_ms_update) values (#{username}, #{nickname}, #{sex}, #{timeCreate}, #{timeUpdate})")
   @Options(useGeneratedKeys = true, keyProperty = "id", keyColumn = "id")
   long insertOne(User user);
 }
