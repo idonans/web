@@ -1,6 +1,6 @@
 package com.idonans.web.user.mapper;
 
-import com.idonans.web.user.entity.User;
+import com.idonans.web.user.entity.po.UserPo;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Options;
@@ -21,9 +21,9 @@ public interface UserMapper {
       @Result(property = "timeCreate", column = "time_ms_create"),
       @Result(property = "timeUpdate", column = "time_ms_update")
   })
-  User findById(@Param("id") long id);
+  UserPo findOneById(@Param("id") long id);
 
   @Insert("insert into t_user(username, nickname, sex, time_ms_create, time_ms_update) values (#{username}, #{nickname}, #{sex}, #{timeCreate}, #{timeUpdate})")
   @Options(useGeneratedKeys = true, keyProperty = "id", keyColumn = "id")
-  int insertOne(User user);
+  int insertOne(UserPo userPo);
 }

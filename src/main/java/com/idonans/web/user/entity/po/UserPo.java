@@ -1,6 +1,9 @@
-package com.idonans.web.user.entity;
+package com.idonans.web.user.entity.po;
 
-public class User {
+/**
+ * 持久化对象
+ */
+public class UserPo {
 
   public long id;
   public String username;
@@ -8,5 +11,4 @@ public class User {
   public int sex;
   public long timeCreate;
   public long timeUpdate;
-
 }
