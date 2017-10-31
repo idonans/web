@@ -42,7 +42,6 @@ public class UserController {
       responseDto.setWithDefaultMessage(ErrorCode.CODE_OK);
     } catch (InternalException e) {
       logger.error(logPrefix, e);
-      e.printStackTrace();
       responseDto.setWithInternalException(e);
     } catch (Throwable e) {
       logger.error(logPrefix, e);
