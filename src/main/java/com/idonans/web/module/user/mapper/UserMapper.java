@@ -1,6 +1,6 @@
-package com.idonans.web.user.mapper;
+package com.idonans.web.module.user.mapper;
 
-import com.idonans.web.user.entity.po.UserPo;
+import com.idonans.web.module.user.entity.po.UserPo;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Options;

@@ -1,10 +1,10 @@
-package com.idonans.web.user.service;
+package com.idonans.web.module.user.service;
 
 import com.idonans.web.lang.ErrorCode;
 import com.idonans.web.lang.InternalException;
-import com.idonans.web.user.entity.bo.UserBo;
-import com.idonans.web.user.entity.po.UserPo;
-import com.idonans.web.user.mapper.UserMapper;
+import com.idonans.web.module.user.entity.bo.UserBo;
+import com.idonans.web.module.user.entity.po.UserPo;
+import com.idonans.web.module.user.mapper.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

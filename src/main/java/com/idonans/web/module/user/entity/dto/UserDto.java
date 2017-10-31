@@ -1,9 +1,12 @@
-package com.idonans.web.user.entity.po;
+package com.idonans.web.module.user.entity.dto;
+
+import com.idonans.web.module.user.entity.bo.UserBo;
+import org.springframework.beans.BeanUtils;
 
 /**
- * 持久化对象
+ * 数据传输对象
  */
-public class UserPo {
+public class UserDto {
 
   private long id;
   private String username;
@@ -11,6 +14,22 @@ public class UserPo {
   private int sex;
   private long timeCreate;
   private long timeUpdate;
+
+  public static UserDto valueOf(UserBo userBo) {
+    if (userBo == null) {
+      return null;
+    }
+
+    UserDto userDto = new UserDto();
+    BeanUtils.copyProperties(userBo, userDto);
+    return userDto;
+  }
+
+  public UserBo toUserBo() {
+    UserBo userBo = new UserBo();
+    BeanUtils.copyProperties(this, userBo);
+    return userBo;
+  }
 
   public long getId() {
     return id;

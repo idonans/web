@@ -1,11 +1,11 @@
-package com.idonans.web.user;
+package com.idonans.web.module.user.controller;
 
 import com.idonans.web.lang.ErrorCode;
 import com.idonans.web.lang.InternalException;
 import com.idonans.web.lang.entity.dto.ResponseDto;
-import com.idonans.web.user.entity.bo.UserBo;
-import com.idonans.web.user.entity.dto.UserDto;
-import com.idonans.web.user.service.UserService;
+import com.idonans.web.module.user.entity.bo.UserBo;
+import com.idonans.web.module.user.entity.dto.UserDto;
+import com.idonans.web.module.user.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;

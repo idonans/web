@@ -1,12 +1,12 @@
-package com.idonans.web.user.entity.dto;
+package com.idonans.web.module.user.entity.bo;
 
-import com.idonans.web.user.entity.bo.UserBo;
+import com.idonans.web.module.user.entity.po.UserPo;
 import org.springframework.beans.BeanUtils;
 
 /**
- * 数据传输对象
+ * 业务对象
  */
-public class UserDto {
+public class UserBo {
 
   private long id;
   private String username;
@@ -15,20 +15,20 @@ public class UserDto {
   private long timeCreate;
   private long timeUpdate;
 
-  public static UserDto valueOf(UserBo userBo) {
-    if (userBo == null) {
+  public static UserBo valueOf(UserPo userPo) {
+    if (userPo == null) {
       return null;
     }
 
-    UserDto userDto = new UserDto();
-    BeanUtils.copyProperties(userBo, userDto);
-    return userDto;
+    UserBo userBo = new UserBo();
+    BeanUtils.copyProperties(userPo, userBo);
+    return userBo;
   }
 
-  public UserBo toUserBo() {
-    UserBo userBo = new UserBo();
-    BeanUtils.copyProperties(this, userBo);
-    return userBo;
+  public UserPo toUserPo() {
+    UserPo userPo = new UserPo();
+    BeanUtils.copyProperties(this, userPo);
+    return userPo;
   }
 
   public long getId() {
