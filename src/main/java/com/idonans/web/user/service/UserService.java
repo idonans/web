@@ -32,8 +32,9 @@ public class UserService {
       throw new InternalException(ErrorCode.CODE_PARAM_ERROR, "input is null");
     }
 
-    input.timeCreate = System.currentTimeMillis();
-    input.timeUpdate = input.timeCreate;
+    long timeNow = System.currentTimeMillis();
+    input.setTimeCreate(timeNow);
+    input.setTimeUpdate(timeNow);
 
     int rows = userMapper.insertOne(input);
     if (rows != 1) {
@@ -41,6 +42,6 @@ public class UserService {
           "user insert fail, rows return " + rows);
     }
 
-    return findOneById(input.id);
+    return findOneById(input.getId());
   }
 }

@@ -26,11 +26,12 @@ public class UserController {
   public ResponseDto<UserDto> getById(@PathVariable long id) {
     ResponseDto<UserDto> responseDto = new ResponseDto<>();
     try {
-      responseDto.data = UserDto.valueOf(userService.findOneById(id));
-      if (responseDto.data == null) {
-        throw new InternalException(ErrorCode.CODE_NOT_FOUND, "user not found with id " + id);
+      UserDto data = UserDto.valueOf(userService.findOneById(id));
+      if (data == null) {
+        throw new InternalException(ErrorCode.CODE_NOT_FOUND, "data of user is null with id " + id);
       }
 
+      responseDto.setData(data);
       responseDto.setWithDefaultMessage(ErrorCode.CODE_OK);
     } catch (InternalException e) {
       e.printStackTrace();
@@ -52,11 +53,13 @@ public class UserController {
       if (inputOriginal != null) {
         input = inputOriginal.toUserBo();
       }
-      responseDto.data = UserDto.valueOf(userService.insertOne(input));
-      if (responseDto.data == null) {
+
+      UserDto data = UserDto.valueOf(userService.insertOne(input));
+      if (data == null) {
         throw new InternalException(ErrorCode.CODE_INSERT_FAIL, "data of user is null");
       }
 
+      responseDto.setData(data);
       responseDto.setWithDefaultMessage(ErrorCode.CODE_OK);
     } catch (InternalException e) {
       e.printStackTrace();

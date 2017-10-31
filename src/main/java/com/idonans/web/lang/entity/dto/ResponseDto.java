@@ -5,9 +5,9 @@ import com.idonans.web.lang.InternalException;
 
 public class ResponseDto<T> {
 
-  public int code;
-  public String message;
-  public T data;
+  private int code;
+  private String message;
+  private T data;
 
   public void setWithDefaultMessage(int code) {
     this.code = code;
@@ -17,5 +17,29 @@ public class ResponseDto<T> {
   public void setWithInternalException(InternalException exception) {
     this.code = exception.getErrorCode();
     this.message = exception.getMessage();
+  }
+
+  public int getCode() {
+    return code;
+  }
+
+  public void setCode(int code) {
+    this.code = code;
+  }
+
+  public String getMessage() {
+    return message;
+  }
+
+  public void setMessage(String message) {
+    this.message = message;
+  }
+
+  public T getData() {
+    return data;
+  }
+
+  public void setData(T data) {
+    this.data = data;
   }
 }
