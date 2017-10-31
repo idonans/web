@@ -78,4 +78,15 @@ public class UserDto {
   public void setTimeUpdate(long timeUpdate) {
     this.timeUpdate = timeUpdate;
   }
+
+  @Override public String toString() {
+    return "UserDto{" +
+        "id=" + id +
+        ", username='" + username + '\'' +
+        ", nickname='" + nickname + '\'' +
+        ", sex=" + sex +
+        ", timeCreate=" + timeCreate +
+        ", timeUpdate=" + timeUpdate +
+        '}';
+  }
 }

@@ -29,7 +29,8 @@ public class UserController {
   @RequestMapping(value = "/{id}", method = RequestMethod.GET)
   @ResponseBody
   public ResponseDto<UserDto> getById(@PathVariable long id, HttpSession session) {
-    logger.info("getById session id " + session.getId());
+    String logPrefix = "[getById session:" + session.getId() + ", id:" + id + "]";
+    logger.info(logPrefix);
     ResponseDto<UserDto> responseDto = new ResponseDto<>();
     try {
       UserDto data = UserDto.valueOf(userService.findOneById(id));
@@ -40,10 +41,11 @@ public class UserController {
       responseDto.setData(data);
       responseDto.setWithDefaultMessage(ErrorCode.CODE_OK);
     } catch (InternalException e) {
+      logger.error(logPrefix, e);
       e.printStackTrace();
       responseDto.setWithInternalException(e);
     } catch (Throwable e) {
-      e.printStackTrace();
+      logger.error(logPrefix, e);
       responseDto.setWithDefaultMessage(ErrorCode.CODE_ERROR);
     }
 
@@ -53,7 +55,9 @@ public class UserController {
   @RequestMapping(method = RequestMethod.POST)
   @ResponseBody
   public ResponseDto<UserDto> createOne(@RequestBody UserDto inputOriginal, HttpSession session) {
-    logger.info("createOne session id " + session.getId());
+    String logPrefix =
+        "[createOne session:" + session.getId() + ", inputOriginal:" + inputOriginal + "]";
+    logger.info(logPrefix);
     ResponseDto<UserDto> responseDto = new ResponseDto<>();
     try {
       UserBo input = null;
@@ -69,10 +73,10 @@ public class UserController {
       responseDto.setData(data);
       responseDto.setWithDefaultMessage(ErrorCode.CODE_OK);
     } catch (InternalException e) {
-      e.printStackTrace();
+      logger.error(logPrefix, e);
       responseDto.setWithInternalException(e);
     } catch (Throwable e) {
-      e.printStackTrace();
+      logger.error(logPrefix, e);
       responseDto.setWithDefaultMessage(ErrorCode.CODE_ERROR);
     }
 
