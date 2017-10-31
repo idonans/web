@@ -6,6 +6,9 @@ import com.idonans.web.lang.entity.dto.ResponseDto;
 import com.idonans.web.module.user.entity.bo.UserBo;
 import com.idonans.web.module.user.entity.dto.UserDto;
 import com.idonans.web.module.user.service.UserService;
+import javax.servlet.http.HttpSession;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -18,12 +21,15 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/user")
 public class UserController {
 
+  private Logger logger = LoggerFactory.getLogger(getClass());
+
   @Autowired
   private UserService userService;
 
   @RequestMapping(value = "/{id}", method = RequestMethod.GET)
   @ResponseBody
-  public ResponseDto<UserDto> getById(@PathVariable long id) {
+  public ResponseDto<UserDto> getById(@PathVariable long id, HttpSession session) {
+    logger.info("getById session id " + session.getId());
     ResponseDto<UserDto> responseDto = new ResponseDto<>();
     try {
       UserDto data = UserDto.valueOf(userService.findOneById(id));
@@ -46,7 +52,8 @@ public class UserController {
 
   @RequestMapping(method = RequestMethod.POST)
   @ResponseBody
-  public ResponseDto<UserDto> createOne(@RequestBody UserDto inputOriginal) {
+  public ResponseDto<UserDto> createOne(@RequestBody UserDto inputOriginal, HttpSession session) {
+    logger.info("createOne session id " + session.getId());
     ResponseDto<UserDto> responseDto = new ResponseDto<>();
     try {
       UserBo input = null;
