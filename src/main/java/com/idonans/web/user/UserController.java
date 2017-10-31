@@ -43,7 +43,7 @@ public class UserController {
     return responseDto;
   }
 
-  @RequestMapping(value = "/", method = RequestMethod.POST)
+  @RequestMapping(method = RequestMethod.POST)
   @ResponseBody
   public ResponseDto<UserDto> createOne(@RequestBody UserDto inputOriginal) {
     ResponseDto<UserDto> responseDto = new ResponseDto<>();
